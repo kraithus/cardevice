@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Music</title>
+
+    <link rel="stylesheet" href="../assets/bootstrap-icons-1.7.0/bootstrap-icons.css">
+
+    <!-- Bootstrap core CSS -->
+<link href="../assets/bootstrap-5.1.3/css/bootstrap.min.css" rel="stylesheet">
+<script src="../assets/js/jquery-3.6.0.min.js"></script>
+    </head>
+<body>
+    <!-- Music Library -->
+    <style>
+        a {
+          color: black;
+        }
+        a:hover {
+          color:black;
+        }
+
+        button {
+          border: none;
+          background-color: transparent;
+        }
+
+        button:focus {
+          outline:none !important;
+        }        
+
+        .nav-library {
+          display: block;
+          padding: 0.5rem 1rem;
+          color: #353535;
+          text-decoration: none;
+          transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .nav-library {
+            transition: none;
+          }
+        }
+
+        .nav-library:hover, .nav-library:focus {
+          color: #e7324b;
+        }
+
+        .nav-library.disabled {
+          color: #6c757d;
+          pointer-events: none;
+          cursor: default;
+        }
+
+        .nav-tabs .nav-library.active,
+        .nav-tabs .nav-item.show .nav-library {
+          color: #e7324b;
+          background-color: #fff;
+          border-color: #dee2e6 #dee2e6 #fff;
+        }       
+
+        .nav-borderless {
+          border: none;
+        } 
+
+        .library-list {
+          color: #e7324b;
+        }
+
+
+    </style>
+
+    <div class="d-flex justify-content-center">
+        <div class="row">
+          <div class="col">
+            <div class="vstack gap-1">
+                <div class="text-center">
+                  <a href="../index.html" class="text-decoration-none"><i class="bi-house" style="font-size: 1.5rem;"></i><p> Home</p></a>
+                </div>
+                <div class="text-center">
+                  <a href="../map" class="text-decoration-none"><i class="bi-map" style="font-size: 1.5rem; color: rgb(213, 246, 102);"></i></i><p> Map</p></a>
+                </div>
+                <div class="text-center">
+                  <a href="#" class="text-decoration-none"><i class="bi-envelope library-list" style="font-size: 1.5rem; color: rgb(41, 192, 36);"></i><p> Email</p></a>
+                </div>              
+                <div class="text-center">
+                  <a href="#" class="text-decoration-none">
+                    <i class="bi-telephone" style="font-size: 1.5rem; color: rgb(41, 192, 36);"></i><p>Phone</p>
+                </div>    
+                <div class="text-center">
+                  <a href="#" class="text-decoration-none"><i class="bi-file-play" style="font-size: 1.5rem; color: rgb(245, 55, 80);"></i><p> Playing</p></a>
+                </div>
+            </div> 
+          </div>
+        <div class="col" style="min-width: 540px;">
+          <div class="tab-content" id="myTabContent">
+                <!--Library Pane Start-->
+                <div class="tab-pane fade show active" id="library" role="tabpanel" aria-labelledby="library-tab"><h3 class="border-bottom">Library</h3>
+                  <ul class="list-group list-group-flush">
+                    <a href="library/playlists.html" class="text-decoration-none">
+                    <li class="list-group-item"><i class="bi-music-note-list library-list"></i> Playlists</li></a>
+                    <a href="library/artists.html" class="text-decoration-none">
+                    <li class="list-group-item"><i class="bi-mic library-list"></i> Artists</li></a>
+                    <a href="#" class="text-decoration-none">
+                    <li class="list-group-item"><i class="bi-stack library-list"></i> Albums</li></a>
+                    <a href="#" class="text-decoration-none">
+                    <li class="list-group-item"><i class="bi-music-note library-list"></i> Songs</li></a>
+                    <a href="#" class="text-decoration-none">
+                    <li class="list-group-item"><i class="bi-calendar3-range library-list"></i> Genres</li></a>
+                  </ul>
+                </div>
+                <!-- Library Pane End-->
+                <!--For You Pane Start-->
+                <div class="tab-pane fade" id="for-you" role="tabpanel" aria-labelledby="for-you-tab">
+                  <h3 class="border-bottom">For You</h3>   
+                  <ul class="list-group list-group-flush">
+                    <a href="library/playlists.html" class="text-decoration-none">
+                      <li class="list-group-item"><i class="bi-music-note-list library-list"></i> Playlists</li></a>
+                      <a href="library/artists.html" class="text-decoration-none">
+                      <li class="list-group-item"><i class="bi-mic library-list"></i> Artists</li></a>
+                      <a href="#" class="text-decoration-none">
+                      <li class="list-group-item"><i class="bi-stack library-list"></i> Albums</li></a>
+                      <a href="#" class="text-decoration-none">
+                      <li class="list-group-item"><i class="bi-music-note library-list"></i> Songs</li></a>
+                      <a href="#" class="text-decoration-none">
+                      <li class="list-group-item"><i class="bi-calendar3-range library-list"></i> Genres</li></a>
+                  </ul>
+                </div>
+                <!--For You Pane End-->
+                <!--Browse Pane Start-->
+                <div class="tab-pane fade" id="browse" role="tabpanel" aria-labelledby="browse-tab">                  
+                  <h3 class="border-bottom">Browse</h3>   
+                  <ul class="list-group list-group-flush">
+                    <a href="library/playlists.html" class="text-decoration-none">
+                      <li class="list-group-item"><i class="bi-music-note-list library-list"></i> Playlists</li></a>
+                      <a href="library/artists.html" class="text-decoration-none">
+                      <li class="list-group-item"><i class="bi-mic library-list"></i> Artists</li></a>
+                      <a href="#" class="text-decoration-none">
+                      <li class="list-group-item"><i class="bi-stack library-list"></i> Albums</li></a>
+                      <a href="#" class="text-decoration-none">
+                      <li class="list-group-item"><i class="bi-music-note library-list"></i> Songs</li></a>
+                      <a href="#" class="text-decoration-none">
+                      <li class="list-group-item"><i class="bi-calendar3-range library-list"></i> Genres</li></a>
+                  </ul>
+                </div>
+                <!--Browse Pane End-->
+                <!--Radio Pane Start-->
+                <div class="tab-pane fade" id="radio" role="tabpanel" aria-labelledby="radio-tab">
+                  <h3 class="border-bottom">Radio</h3>   
+                  <ul class="list-group list-group-flush">
+                    <a href="library/playlists.html" class="text-decoration-none">
+                      <li class="list-group-item"><i class="bi-music-note-list library-list"></i> Playlists</li></a>
+                      <a href="library/artists.html" class="text-decoration-none">
+                      <li class="list-group-item"><i class="bi-mic library-list"></i> Artists</li></a>
+                      <a href="#" class="text-decoration-none">
+                      <li class="list-group-item"><i class="bi-stack library-list"></i> Albums</li></a>
+                      <a href="#" class="text-decoration-none">
+                      <li class="list-group-item"><i class="bi-music-note library-list"></i> Songs</li></a>
+                      <a href="#" class="text-decoration-none">
+                      <li class="list-group-item"><i class="bi-calendar3-range library-list"></i> Genres</li></a>
+                  </ul>
+                </div>
+                <!--Radio Pane End-->
+                <!--Search Pane Start-->
+                <div class="tab-pane fade" id="search" role="tabpanel" aria-labelledby="search-tab">
+                  <h3 class="border-bottom">Search</h3>   
+                      <li class="list-group-item"><i class="bi-search library-list"></i> <input placeholder="Search Your Library" id="myInput" type="text"></li>
+                    <ul class="list-group list-group-flush" id="myList">  
+                      <a href="library/artists.html" class="text-decoration-none">
+                      <li class="list-group-item"><i class="bi-mic library-list"></i> Belly</li></a>
+                      <a href="#" class="text-decoration-none">
+                      <li class="list-group-item"><i class="bi-mic library-list"></i> BLACKPINK</li></a>
+                      <a href="#" class="text-decoration-none">
+                      <li class="list-group-item"><i class="bi-mic library-list"></i> Lil Uzi Vert</li></a>
+                      <a href="#" class="text-decoration-none">
+                      <li class="list-group-item"><i class="bi-calendar3-range library-list"></i> Miley Cyrus</li></a>
+                  </ul>
+                </div>
+                <!--Search Pane End-->
+          </div>
+          <style>
+            .my-nav{
+              justify-content: center !important;
+
+            }
+            .my-item{
+              margin: auto;
+            }
+          </style>
+          <ul class="nav nav-tabs nav-borderless my-nav" id="myTab" role="tablist">
+            <li class="nav-item my-item" role="presentation">
+              <button class="nav-library active" id="library-tab" data-bs-toggle="tab" data-bs-target="#library" type="button" role="tab" aria-controls="library" aria-selected="true"><i class="bi-music-note-beamed" style="font-size: 4rem;"></i><p>Library</p></button>
+            </li>
+            <li class="nav-item my-item" role="presentation">
+              <button class="nav-library" id="for-you-tab" data-bs-toggle="tab" data-bs-target="#for-you" type="button" role="tab" aria-controls="for-you" aria-selected="false"><i class="bi-heart" style="font-size: 4rem;"></i><p>For You</p></button>
+            </li>
+            <li class="nav-item my-item" role="presentation">
+              <button class="nav-library" id="browse-tab" data-bs-toggle="tab" data-bs-target="#browse" type="button" role="tab" aria-controls="browse" aria-selected="false"><i class="bi-grid" style="font-size: 4rem;"></i><p>Browse</p></button>
+            </li>
+            <li class="nav-item my-item" role="presentation">
+              <button class="nav-library" id="radio-tab" data-bs-toggle="tab" data-bs-target="#radio" type="button" role="tab" aria-controls="radio" aria-selected="false"><i class="bi-rainbow" style="font-size: 4rem;"></i><p>Radio</p></button>
+            </li>
+            <li class="nav-item my-item" role="presentation">
+              <button class="nav-library" id="search-tab" data-bs-toggle="tab" data-bs-target="#search" type="button" role="tab" aria-controls="radio" aria-selected="false"><i class="bi-search" style="font-size: 4rem;"></i><p>Search</p></button>
+            </li>            
+          </ul>  
+          </div>        
+        </div>      
+    </div>
+    <script>
+      $(document).ready(function(){
+        $("#myInput").on("keyup", function() {
+          var value = $(this).val().toLowerCase();
+          $("#myList li").filter(function() {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+          });
+        });
+      });
+      </script>
+ 
+<script src="../assets/bootstrap-5.1.3/js/bootstrap.bundle.min.js"></script>
+
+      
+</body>
+</html>
